@@ -5,10 +5,11 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build && pagefind --site dist",
+    "build": "pnpm sync-posts && astro build && pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
     "type-check": "tsc --noEmit --isolatedDeclarations",
+    "sync-posts": "node scripts/sync-posts.js",
     "new-post": "node scripts/new-post.js",
     "format": "biome format --write ./src",
     "lint": "biome check --write ./src",
@@ -64,6 +65,7 @@
     "@types/markdown-it": "^14.1.2",
     "@types/mdast": "^4.0.4",
     "@types/sanitize-html": "^2.15.0",
+    "fs-extra": "^11.3.0",
     "postcss-import": "^16.1.0",
     "postcss-nesting": "^13.0.1"
   },
